@@ -32,7 +32,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-       $posts = Post::with(['user'])->take(10)->get();
+    //    $posts = Post::with(['user'])->take(10)->get();
+       $posts = Post::with(['user'])->paginate(5);
        return response()->json($posts);   
     }
 
